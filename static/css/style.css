@@ -1,0 +1,47 @@
+html {
+    background: url(../images/back.jpg) no-repeat center center fixed;
+    
+}
+
+
+.prof-box {
+    width:680px;
+    height:510px;
+    background-color: #39459b;
+    padding: 70px;
+    color:white;
+    margin:0 auto;
+    margin-top: 53px;
+    text-align: center;
+    
+}
+
+.prof-pic {
+    margin-top: 15px;
+    border-radius: 50%;
+    height: 200px;
+    width:200px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    border-radius: 50%;
+} 
+
+h1 {
+    font-weight: 100;
+    letter-spacing: 6;
+    font-size: 40px;
+}
+
+p {
+    font-weight: 150;
+    letter-spacing: 7;
+    font-size: 20px;
+}
+
+.line-break {
+    width: 140px;
+    margin:0 auto;
+    border-top: 1px solid white;
+}
+
