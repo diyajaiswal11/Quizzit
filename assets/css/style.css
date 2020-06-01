@@ -1,31 +1,20 @@
-html {
+body {
     background: url(../images/back.jpg) no-repeat center center fixed;
     
 }
 
 
 .prof-box {
-    width:680px;
+    width:1210px;
     height:510px;
-    background-color: #39459b;
-    padding: 70px;
+    background-color: rgba(94, 103, 153, 0.575);
+    padding: 20px;
     color:white;
     margin:0 auto;
     margin-top: 53px;
     text-align: center;
     
 }
-
-.prof-pic {
-    margin-top: 15px;
-    border-radius: 50%;
-    height: 200px;
-    width:200px;
-    border-style: solid;
-    border-color: white;
-    border-width: 4px;
-    border-radius: 50%;
-} 
 
 h1 {
     font-weight: 100;
@@ -45,15 +34,3 @@ p {
     border-top: 1px solid white;
 }
 
-.social-icons {
-    font-size: 30px;
-
-}
-
-.social-icons a {
-    color:white;
-}
-
-.social-icons a:hover {
-    color:rgb(201, 111, 111);
-}
