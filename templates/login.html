@@ -1,0 +1,56 @@
+{% extends 'home.html' %} 
+{% block content %}
+
+<h1>LOGIN</h1>
+        <div class="line-break"></div>
+        <br>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+                   <div class="alert alert-danger">
+                       <strong>{{ error|escape }}</strong>
+                   </div>
+            {% endfor %}
+               {% endfor %}
+            {% for error in form.non_field_errors %}
+                  <div class="alert alert-danger">
+                       <strong>{{ error|escape }}</strong>
+                   </div>
+               {% endfor %}
+               {% endif %}
+        <div>
+            {{ form.username }}
+        </div>
+        <br>
+        <div>
+            {{ form.password }}
+        </div>
+        
+        <br>
+        
+            <button type="submit">
+                Login
+            </button>
+        
+        
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        
+        </form>
+        <div>
+            <p style="text-align: center;">
+                Don't have an account?
+            </p>
+        <button>
+            <a href="{% url 'register' %}">
+                Sign up now							
+            </a>
+        </button>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

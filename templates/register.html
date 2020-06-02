@@ -1,0 +1,55 @@
+{% extends 'home.html' %} 
+{% block content %}
+
+
+<h1>REGISTER</h1>
+        <div class="line-break"></div>
+        <form method='POST' action="">
+            {% csrf_token %}  
+            <br>
+            <div>
+                {{form.username}}
+            </div>
+            <br>
+            <div>
+                {{form.email}}
+            </div>
+            <br>
+            <div>
+                {{form.password1}}
+            </div>
+            <br>
+            <div>
+                {{form.password2}}
+            </div>
+            <br>
+            
+        <button type="submit" name="Create User">
+            Register
+        </button>
+        <br>
+        
+        {{form.errors}}
+        
+        <div class="messages">
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        </div>
+            <div>
+                <p style="text-align: center;">
+                    Already have an account?
+                </p>
+                <button>
+                <a href="{% url 'loginpage' %}">
+                    Login now							
+                </a>
+                </button>
+            </div>
+        </form>
+        <br>
+    <br>
+    
+    </div>
+
+{% endblock %}
