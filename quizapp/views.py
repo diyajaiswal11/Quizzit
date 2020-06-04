@@ -1,20 +1,32 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-# Create your views here.
+from django.urls import reverse
 from .forms import CreateUserForm, UserLoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login , logout, get_user_model
-from django.http import HttpResponseBadRequest, JsonResponse
+from django.http import HttpResponseBadRequest, JsonResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-
-from .models import Question, Ans
+from .forms import AnswerForm
+from .models import Question, Answer
 
 @login_required(login_url='question')
-def question(request):
-    que=Question.objects.all()
-    
-    return render(request,'question.html', {'que':que})  
+def question(request,pk):
+    que=Question.objects.get(pk=pk)
+    ans=Answer.objects.get(question=que)
+    if request.method=='POST':
+        form=AnswerForm(request.POST)
+        if form.is_valid():
+            ans1 = form.cleaned_data
+            field = ans1['answer']
+            if field==ans:
+                form.save()
+                return HttpResponseRedirect(reverse('question', args=(que.pk+1,))) 
+            else:
+                return HttpResponseRedirect(reverse('question', args=(que.pk,))) 
+    else:
+        form=AnswerForm()
+    return render(request,'question.html', {'que':que,'form':form})  
 
 
 

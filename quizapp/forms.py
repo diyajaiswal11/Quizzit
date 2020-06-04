@@ -3,6 +3,17 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth import authenticate, get_user_model
+from .models import Answer
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model=Answer 
+        fields=['answer']
+    
+
+
+
+
 
 
 class CreateUserForm(UserCreationForm):

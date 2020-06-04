@@ -13,8 +13,9 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    que=models.ForeignKey(Question,on_delete=models.CASCADE)
-    answer=models.CharField(max_length=100) 
+    question=models.ForeignKey(Question,on_delete=models.CASCADE)
+    answer=models.CharField(max_length=100,default='')
+
 
     def __str__(self):
         return self.answer

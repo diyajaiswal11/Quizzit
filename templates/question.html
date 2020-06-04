@@ -5,9 +5,14 @@
 <h2>Questions</h2>
 
 <p>
-    {% for q in que %}
-    {{ q.question}}
-    {% endfor %}
+    
+    {{ que.question}}
+
+    <form method="POST">
+        {% csrf_token %} 
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 </p>
 
 {% endblock %}
