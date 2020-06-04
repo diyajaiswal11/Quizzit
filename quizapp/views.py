@@ -8,6 +8,17 @@ from django.contrib.auth import authenticate, login , logout, get_user_model
 from django.http import HttpResponseBadRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 
+from .models import Question, Ans
+
+@login_required(login_url='question')
+def question(request):
+    que=Question.objects.all()
+    
+    return render(request,'question.html', {'que':que})  
+
+
+
+
 
 
 @login_required(login_url='frontpage')
