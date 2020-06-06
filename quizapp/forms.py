@@ -5,11 +5,8 @@ from django.forms import ModelForm
 from django.contrib.auth import authenticate, get_user_model
 from .models import Answer
 
-class AnswerForm(forms.ModelForm):
-    class Meta:
-        model=Answer 
-        fields=['answer']
-    
+class AnswerForm(forms.Form):
+    enterans=forms.CharField(max_length=100)
 
 
 

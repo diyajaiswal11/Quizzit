@@ -13,13 +13,12 @@ from .models import Question, Answer
 @login_required(login_url='question')
 def question(request,pk):
     que=Question.objects.get(pk=pk)
-    ans=Answer.objects.get(question=que)
+    ans=str(Answer.objects.get(question=que))
     if request.method=='POST':
         form=AnswerForm(request.POST)
         if form.is_valid():
-            ans1 = form.cleaned_data
-            field = ans1['answer']
-            if field==ans:
+            ans1 = form.cleaned_data.get("enterans")
+            if ans1==ans:
                 form.save()
                 return HttpResponseRedirect(reverse('question', args=(que.pk+1,))) 
             else:
