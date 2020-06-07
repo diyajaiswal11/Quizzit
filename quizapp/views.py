@@ -19,7 +19,7 @@ def question(request,pk):
         if form.is_valid():
             ans1 = form.cleaned_data.get("enterans")
             if ans1==ans:
-                form.save()
+                #form.save()
                 return HttpResponseRedirect(reverse('question', args=(que.pk+1,))) 
             else:
                 return HttpResponseRedirect(reverse('question', args=(que.pk,))) 
