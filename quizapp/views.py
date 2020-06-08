@@ -8,17 +8,21 @@ from django.contrib.auth import authenticate, login , logout, get_user_model
 from django.http import HttpResponseBadRequest, JsonResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import AnswerForm
-from .models import Question, Answer
+from .models import Question, Answer, Level
+from django.contrib.auth.models import User
 
 @login_required(login_url='question')
 def question(request,pk):
     que=Question.objects.get(pk=pk)
     ans=str(Answer.objects.get(question=que))
+    levelscore=Level.objects.get(user=request.user)
     if request.method=='POST':
         form=AnswerForm(request.POST)
         if form.is_valid():
             ans1 = form.cleaned_data.get("enterans")
             if ans1==ans:
+                levelscore.score=str(levelscore.score)+str(10)
+                levelscore.level=str(levelscore.level)+str(1)
                 #form.save()
                 return HttpResponseRedirect(reverse('question', args=(que.pk+1,))) 
             else:
@@ -46,13 +50,15 @@ def home(request):
 def register(request):
     user=request.user
     if user.is_authenticated:
-        return redirect('home') 
+        return redirect('frontpage') 
     else:
         if request.method == 'POST':
             form=CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
                 user=form.cleaned_data.get('username')
+                u = User.objects.get(username=user)
+                Level.objects.create(user=u)
                 messages.success(request,'Account was created for '+ user)
                 return redirect('loginpage')
         else:

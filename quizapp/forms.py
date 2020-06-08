@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth import authenticate, get_user_model
-from .models import Answer
+from .models import Answer, Level
 
 class AnswerForm(forms.Form):
     enterans=forms.CharField(max_length=100)
@@ -23,6 +23,15 @@ class CreateUserForm(UserCreationForm):
             'username': forms.TextInput(attrs={'placeholder':'Username', 'class':'input100'}),
             'email': forms.TextInput(attrs={'placeholder':'Email', 'class':'input100'}),
         }
+
+
+        def save(self, *args, **kwargs):
+            super().save(*args, **kwargs)
+            Level.objects.create(user=self)
+                
+
+
+
         
 class UserLoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Username','class':'input100'}),)
