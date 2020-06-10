@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 
 class Level(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    level=models.CharField(max_length=500,default=1) 
-    score=models.CharField(max_length=2500,default=0)
+    level=models.IntegerField(default=1) 
+    score=models.IntegerField(default=0)
 
     def __str__(self):
-        return self.score
+        return self.user.username 
+    
 
 
 

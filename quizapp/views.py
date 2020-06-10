@@ -19,27 +19,33 @@ def question(request,pk):
     if request.method=='POST':
         form=AnswerForm(request.POST)
         if form.is_valid():
-            ans1 = form.cleaned_data.get("enterans")
+            ans1 = form.cleaned_data.get("Answer")
             if ans1==ans:
-                levelscore.score=str(levelscore.score)+str(10)
-                levelscore.level=str(levelscore.level)+str(1)
+                levelscore.score=levelscore.score+10
+                levelscore.level=levelscore.level+1
+                levelscore.save()
                 #form.save()
-                return HttpResponseRedirect(reverse('question', args=(que.pk+1,))) 
+                return HttpResponseRedirect(reverse('question', args=(levelscore.level+1,))) 
             else:
-                return HttpResponseRedirect(reverse('question', args=(que.pk,))) 
+                return HttpResponseRedirect(reverse('question', args=(levelscore.level,))) 
     else:
         form=AnswerForm()
-    return render(request,'question.html', {'que':que,'form':form})  
+    return render(request,'question.html', {'que':que,'form':form,'levelscore':levelscore})  
 
 
+@login_required(login_url='leaderboard')
+def leaderboard(request):
+    levelscore=Level.objects.all().order_by('-score')
 
+    return render(request,'leaderboard.html',{'levelscore':levelscore }) 
 
 
 
 @login_required(login_url='frontpage')
 def frontpage(request):
-    
-    return render(request,'frontpage.html')  
+    levelscore=Level.objects.get(user=request.user)
+
+    return render(request,'frontpage.html',{'levelscore':levelscore })  
 
 
 def home(request):

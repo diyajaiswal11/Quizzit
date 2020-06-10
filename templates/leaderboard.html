@@ -1,0 +1,18 @@
+{% extends 'home.html' %} 
+{% block content %}
+
+<a href="{% url 'logoutpage' %}" style="color: white;">Logout</a>
+<h2>Leaderboard</h2>
+
+
+{% for ls in levelscore %}
+ {{ ls.user }}
+ {{ ls.score }}
+ <br>
+
+{% endfor %}
+
+
+
+
+{% endblock %}

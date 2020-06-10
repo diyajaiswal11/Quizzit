@@ -1,13 +1,13 @@
 body {
-    background: url(../images/back.jpg) no-repeat center center fixed;
+    background: url(../images/quiz.jpg) no-repeat center center fixed;
     
 }
 
 
 .prof-box {
-    width:1210px;
+    width:1215px;
     height:510px;
-    background-color: rgba(94, 103, 153, 0.575);
+    background-color: rgba(82, 5, 56, 0.575);
     padding: 20px;
     color:white;
     margin:0 auto;
@@ -19,7 +19,7 @@ body {
 h1 {
     font-weight: 100;
     letter-spacing: 6;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 p {
@@ -29,8 +29,8 @@ p {
 }
 
 .line-break {
-    width: 140px;
+    width: 1140px;
     margin:0 auto;
-    border-top: 1px solid white;
+    border-top: 0.5px solid white;
 }
 

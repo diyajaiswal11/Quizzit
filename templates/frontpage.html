@@ -3,8 +3,11 @@
 
 
 <h1>Hello</h1>
+<a href="{% url 'logoutpage' %}" style="color: white;">Logout</a>
+<a href="{% url 'leaderboard' %}" style="color: white;">Leaderboard</a>
+<a href="{% url 'question' levelscore.level %}" style="color: white;">Start Quiz</a>
 
-<a href="{% url 'question' 1 %}" style="color: white;">Start Quiz</a>
+
 
 
 {% endblock %}
