@@ -1,9 +1,7 @@
 {% extends 'home.html' %} 
 {% block content %}
 
-<h1>LOGIN</h1>
-        <div class="line-break"></div>
-        <br>
+<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">LOGIN</p>
         <form method="POST" action="">
             {% csrf_token %}
             {% if form.errors %}
@@ -23,16 +21,15 @@
         <div>
             {{ form.username }}
         </div>
-        <br>
+        
         <div>
             {{ form.password }}
         </div>
         
-        <br>
         
-            <button type="submit">
-                Login
-            </button>
+        <button type="submit" class="registerbtn">
+            Login
+        </button>
         
         
         {% for message in messages %}
@@ -40,14 +37,14 @@
         {% endfor %}
         
         </form>
-        <div>
-            <p style="text-align: center;">
-                Don't have an account?
-            </p>
-        <button>
-            <a href="{% url 'register' %}">
-                Sign up now							
-            </a>
+        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:large;display:inline-block">
+            Dont't have an account?
+        </p>
+        
+            <button type="button" onclick="location.href='{% url 'register' %}'" class="registerbtn">
+                Register
+            </button>
+        
         </button>
         </div>
         </div>

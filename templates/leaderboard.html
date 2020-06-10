@@ -1,15 +1,18 @@
 {% extends 'home.html' %} 
 {% block content %}
-
-<a href="{% url 'logoutpage' %}" style="color: white;">Logout</a>
-<h2>Leaderboard</h2>
+<br>
+<button type="button" onclick="location.href='{% url 'question' levelscore1.level %}'" class="registerbtn">
+    Back
+  </button>
+  <button type="button" onclick="location.href='{% url 'logoutpage' %}'" class="registerbtn">
+    Logout
+  </button>
+  <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">LEADERBOARD</p>
 
 
 {% for ls in levelscore %}
- {{ ls.user }}
- {{ ls.score }}
- <br>
-
+<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:20px;white-space: pre">{{ ls.user }}&nbsp; {{ls.score }}</p>
+ 
 {% endfor %}
 
 

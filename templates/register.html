@@ -2,33 +2,30 @@
 {% block content %}
 
 
-<h1>REGISTER</h1>
-        <div class="line-break"></div>
+<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">REGISTER</p>
+        
         <form method='POST' action="">
             {% csrf_token %}  
-            <br>
+           
             <div>
                 {{form.username}}
             </div>
-            <br>
+            
             <div>
                 {{form.email}}
             </div>
-            <br>
+            
             <div>
                 {{form.password1}}
             </div>
-            <br>
+            
             <div>
                 {{form.password2}}
             </div>
-            <br>
             
-        <button type="submit" name="Create User">
+        <button type="submit" class="registerbtn">
             Register
         </button>
-        <br>
-        
         {{form.errors}}
         
         <div class="messages">
@@ -37,14 +34,14 @@
         {% endfor %}
         </div>
             <div>
-                <p style="text-align: center;">
+                <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:large;display:inline-block">
                     Already have an account?
                 </p>
-                <button>
-                <a href="{% url 'loginpage' %}">
-                    Login now							
-                </a>
-                </button>
+                
+                    <button type="button" onclick="location.href='{% url 'loginpage' %}'" class="registerbtn">
+                        Login
+                    </button>
+                
             </div>
         </form>
         <br>

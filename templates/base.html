@@ -4,7 +4,20 @@
 {% block content %}
 
 <br>
-<a href="{% url 'register' %}" style="color: white;">Register</a>
-<a href="{% url 'loginpage' %}" style="color: white;">Login </a>
+<p style="margin:auto auto;width: 940px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">A Login and Signup functionality for Participants of Quiz where Questions are added by Admin who have
+    the ability to disqualify or remove a participant. Leaderboard is also provided wherein participants can view the rank
+    of all other participants sorted by their scores. A participant cannot move to the next question until he/she answers the 
+    current question correctly.
+</p>
+<br>
+<br>
+<button type="button" onclick="location.href='{% url 'loginpage' %}'" class="registerbtn">
+    Login
+</button>
+<button type="button" onclick="location.href='{% url 'register' %}'" class="registerbtn">
+    Register
+</button>
+
+
 
 {% endblock %}

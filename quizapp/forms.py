@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, get_user_model
 from .models import Answer, Level
 
 class AnswerForm(forms.Form):
-    Answer=forms.CharField(max_length=100)
+    Answer=forms.CharField(max_length=100, widget=forms. TextInput({ "placeholder": "Enter Answer"}))
 
 
 

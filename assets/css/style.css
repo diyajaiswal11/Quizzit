@@ -1,24 +1,43 @@
 body {
-    background: url(../images/quiz.jpg) no-repeat center center fixed;
+    background: url(../images/q2.jpg);
+    background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
     
 }
 
+.registerbtn {
+    background-color: black;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    opacity: 0.9;
+    border-radius: 8px;
+    
+  }
+
 
 .prof-box {
-    width:1215px;
-    height:510px;
-    background-color: rgba(82, 5, 56, 0.575);
+    overflow: hidden;
+    
+    width:1095px;
+    height:574px;
+    background-color: rgba(92, 89, 89, 0.4); 
     padding: 20px;
     color:white;
-    margin:0 auto;
-    margin-top: 53px;
+    margin:auto auto;
+    margin-top: 21px;
+    margin-bottom: 10px;
     text-align: center;
     
 }
 
 h1 {
     font-weight: 100;
-    letter-spacing: 6;
+    letter-spacing: 15;
     font-size: 35px;
 }
 
@@ -29,7 +48,7 @@ p {
 }
 
 .line-break {
-    width: 1140px;
+    width: 940px;
     margin:0 auto;
     border-top: 0.5px solid white;
 }

@@ -10,14 +10,20 @@ from django.contrib.auth.decorators import login_required
 from .forms import AnswerForm
 from .models import Question, Answer, Level
 from django.contrib.auth.models import User
+from django.views.decorators.cache import cache_control
 
 @login_required(login_url='question')
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def question(request,pk):
     que=Question.objects.get(pk=pk)
     ans=str(Answer.objects.get(question=que))
     levelscore=Level.objects.get(user=request.user)
+    if pk<levelscore.level:
+        return HttpResponseRedirect(reverse('question', args=(levelscore.level,)))
     if request.method=='POST':
         form=AnswerForm(request.POST)
+        if pk<levelscore.level:
+            return HttpResponseRedirect(reverse('question', args=(levelscore.level,))) 
         if form.is_valid():
             ans1 = form.cleaned_data.get("Answer")
             if ans1==ans:
@@ -25,8 +31,9 @@ def question(request,pk):
                 levelscore.level=levelscore.level+1
                 levelscore.save()
                 #form.save()
-                return HttpResponseRedirect(reverse('question', args=(levelscore.level+1,))) 
+                return HttpResponseRedirect(reverse('question', args=(levelscore.level,))) 
             else:
+                messages.success(request,'Incorrect Answer, Try Again!')
                 return HttpResponseRedirect(reverse('question', args=(levelscore.level,))) 
     else:
         form=AnswerForm()
@@ -36,8 +43,8 @@ def question(request,pk):
 @login_required(login_url='leaderboard')
 def leaderboard(request):
     levelscore=Level.objects.all().order_by('-score')
-
-    return render(request,'leaderboard.html',{'levelscore':levelscore }) 
+    levelscore1=Level.objects.get(user=request.user)
+    return render(request,'leaderboard.html',{'levelscore':levelscore,'levelscore1':levelscore1 }) 
 
 
 

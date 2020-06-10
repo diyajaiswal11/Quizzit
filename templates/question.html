@@ -1,19 +1,33 @@
 {% extends 'home.html' %} 
 {% block content %}
-
-<a href="{% url 'logoutpage' %}" style="color: white;">Logout</a>
-<a href="{% url 'leaderboard' %}" style="color: white;">Leaderboard</a>
-<h2>Questions</h2>
-
+<br>
+<button type="button" onclick="location.href='{% url 'leaderboard' %}'" class="registerbtn" style="width: 130px;">
+  Leaderboard
+</button>
+<button type="button" onclick="location.href='{% url 'logoutpage' %}'" class="registerbtn">
+  Logout
+</button>
+<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">QUESTION</p>
 <p>
+  <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-medium">{{ que.question }}</p>
     
-    {{ que.question}}
 
     <form method="POST">
         {% csrf_token %} 
-        {{ form }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        {% for field in form %}
+        {{ field }}
+        {% endfor %}
+        <button type="submit" class="registerbtn">
+          Submit
+      </button>
       </form>
+
+      <div class="messages">
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
 </p>
+
+
 
 {% endblock %}
