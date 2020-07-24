@@ -5,6 +5,21 @@ body {
   background-attachment: fixed;
     
 }
+input[type=text], input[type=password] {
+    width: 250px;;
+    padding: 15px;
+    margin: 4px 0 6px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    background: #e7e7e7;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: rgb(255, 255, 255);
+    outline: none;
+  }
+
 
 .registerbtn {
     background-color: black;

@@ -38,9 +38,11 @@ input[type="submit"], button {
     /* Header */
 
     #header {
+        display: flex;
         flex-direction: column;
         padding: 15px 30px;
-        justify-content: flex-start;
+        height: auto;
+        line-height: 1;
     }
 
     #branding h1 {
@@ -390,10 +392,6 @@ input[type="submit"], button {
 
     .datetimeshortcuts {
         color: #ccc;
-    }
-
-    .form-row .datetime input.vDateField, .form-row .datetime input.vTimeField {
-        width: 75%;
     }
 
     .inline-group {
