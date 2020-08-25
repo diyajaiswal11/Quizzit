@@ -1,53 +1,76 @@
-{% extends 'home.html' %} 
+{% extends 'home-le.html' %}
+{% load static %}
 {% block content %}
 
-<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">LOGIN</p>
-        <form method="POST" action="">
-            {% csrf_token %}
-            {% if form.errors %}
-            {% for field in form %}
-            {% for error in field.errors %}
-                   <div class="alert alert-danger">
-                       <strong>{{ error|escape }}</strong>
-                   </div>
-            {% endfor %}
-               {% endfor %}
-            {% for error in form.non_field_errors %}
-                  <div class="alert alert-danger">
-                       <strong>{{ error|escape }}</strong>
-                   </div>
-               {% endfor %}
-               {% endif %}
-        <div>
-            {{ form.username }}
-        </div>
-        
-        <div>
-            {{ form.password }}
-        </div>
-        
-        
-        <button type="submit" class="registerbtn">
-            Login
-        </button>
-        
-        
-        {% for message in messages %}
-            <p id="messages">{{message}}</p>
-        {% endfor %}
-        
-        </form>
-        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:large;display:inline-block">
-            Dont't have an account?
-        </p>
-        
-            <button type="button" onclick="location.href='{% url 'register' %}'" class="registerbtn">
-                Register
-            </button>
-        
-        </button>
-        </div>
+<div class="container">
+    <div class="card card-design mx-auto shadow">
+        <div class="card-body">
+            <div class="mb-3">
+                <div class=" d-flex  align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-md-6 order-md-2 text-center">
+                            <h2 class="card-title mt-3"><b>Login</b></h2>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                {% if form.errors %}
+                                {% for field in form %}
+                                {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                <div class="form-group">
+                                    {{ form.username }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password }}
+                                </div>
+                                <button class="btn btn-design2 mx-1" type="submit">
+                                    <strong>Login</strong>
+                                </button>
+                            </form>
+                            <br>
+                            <div class="messages">
+                                {% for message in messages %}
+                                <div class="alert alert-success" id="messages">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <p class="lead mt-3">Don't have an Account?
+                            </p><span>
+                                <a href="{% url 'register' %}">
+                                    <button class="btn btn-design1 mx-1">
+                                        <strong>Signup</strong>
+                                    </button>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <img class="img-fluid" src="{% static 'images/login1.png' %}" height="1000" width="1000">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
+
+</div>
+
+
+
+
+
+
+
+
 
 {% endblock %}

@@ -40,18 +40,17 @@ def question(request,pk):
     return render(request,'question.html', {'que':que,'form':form,'levelscore':levelscore})  
 
 
-@login_required(login_url='leaderboard')
+
 def leaderboard(request):
     levelscore=Level.objects.all().order_by('-score')
-    levelscore1=Level.objects.get(user=request.user)
-    return render(request,'leaderboard.html',{'levelscore':levelscore,'levelscore1':levelscore1 }) 
+    return render(request,'leaderboard.html',{'levelscore':levelscore })
+   
 
 
 
 @login_required(login_url='frontpage')
 def frontpage(request):
     levelscore=Level.objects.get(user=request.user)
-
     return render(request,'frontpage.html',{'levelscore':levelscore })  
 
 

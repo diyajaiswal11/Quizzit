@@ -1,26 +1,43 @@
-{% extends 'home.html' %} 
+{% extends 'home-lo.html' %} 
 {% block content %}
 
-<br>
+<div class="container">
+    <div class="card card-design mx-auto shadow">
+        <div class="card-body text-center">
+            <h2 class="card-title mt-3"><b>Rules</b></h2>
+            <h5 class="card-title ">
+                <ol class="text-left mx-auto">
+                    <li class="mb-2">
+                        Each question carries 10 points.
+                    </li>
+                    <li class="mb-2">
+                        You'll be directed to the next question once you answer the current question correctly.
+                    </li>
+                    <li class="mb-2">
+                        Admin holds the right to disqualify any individual in case of any unethical means.
+                    </li>
+                    <li class="mb-2">
+                        Usage of foul names will lead to disqualification.
+                    </li>
+                </ol>
+            </h5>
+
+            <a href="{% url 'question' pk=levelscore.level %}">
+                <button class="btn btn-design3 mx-1">
+                    <strong>Start Quiz</strong>
+                </button>
+            </a>
+            <a href="{% url 'leaderboard' %}">
+                <button class="btn btn-design1 mx-1">
+                    <strong>Leaderboard</strong>
+                </button>
+            </a>
+        </div>
+    </div>
 
 <p style="margin:auto auto;width: 940px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align:left;margin-left:200px;">
-    1. Each Question carries 10 Points. <br>
-    2. You'll be directed to the next Question once you answer the Current Question correctly.<br>
-    3. Admin holds the right to disqualify any individual in case of any unethical means.<br>
     
-</p>
-
-<br>
-<button type="button" onclick="location.href='{% url 'question' levelscore.level %}'" class="registerbtn">
-    Start Quiz
-</button>
-<button type="button" onclick="location.href='{% url 'leaderboard' %}'" class="registerbtn" style="width: 130px;">
-    Leaderboard
-</button>
-<button type="button" onclick="location.href='{% url 'logoutpage' %}'" class="registerbtn">
-    Logout
-</button>
-
+    
 
 
 

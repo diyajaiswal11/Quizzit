@@ -1,0 +1,98 @@
+.nav-design {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    background-color: #252A34;
+    /* color: #08D9D6 #252A34 #FF2E63 #EAEAEA; */
+}
+
+.nav-design a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-design {
+    background-color: #d4047e;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.btn-design:hover {
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    background-color: #750285;
+}
+
+.btn-design1 {
+    background-color: #003391;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.btn-design1:hover {
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    background-color: #020a30;
+}
+
+.btn-design2 {
+    background-color: #011b4b;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.btn-design2:hover {
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    background-color: #000b1f;
+}
+
+
+.card-design {
+    max-width: 80%;
+    margin-top: 40px;
+}
+
+input[type=text], input[type=password] ,input[type=email] {
+    width: 50%;
+    height: 45px;
+    padding: 15px;
+    margin: 3px 0 4px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    background: #e7e7e7;
+  }
+  
+input[type=text]:focus, input[type=password]:focus , input[type=email]:focus {
+background-color: rgb(221, 221, 221);
+outline: none;
+}
+
+
+.btn-design3 {
+    background-color:#d61305;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.btn-design3:hover {
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    background-color:#cc0044;
+}

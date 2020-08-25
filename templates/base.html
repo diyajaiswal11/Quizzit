@@ -1,23 +1,28 @@
-{% extends 'home.html' %} 
-
-
+{% extends 'home-le.html' %}
+{% load static %}
 {% block content %}
+<div class="container">
+    <div class="card card-design mx-auto shadow">
+        <div class="card-body text-center">
+            <img src="{% static 'images/thinking.png' %}" width="250" height="250" class="img-fluid mx-auto d-block">
+            <h5 class="card-title ">
+                <b>Welcome to Quizzit! &#128221;</b><br>
+                Quizzit is an online quiz application with easy questions pertaining to several topics.<br>
+                To participate, create an account for yourself and answer the questions correctly to gain points and
+                find yourself on our leaderboard. &#128516;</h5>
 
-<br>
-<p style="margin:auto auto;width: 940px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">A Login and Signup functionality for Participants of Quiz where Questions are added by Admin who have
-    the ability to disqualify or remove a participant. Leaderboard is also provided wherein participants can view the rank
-    of all other participants sorted by their scores. A participant cannot move to the next question until he/she answers the 
-    current question correctly.
-</p>
-<br>
-<br>
-<button type="button" onclick="location.href='{% url 'loginpage' %}'" class="registerbtn">
-    Login
-</button>
-<button type="button" onclick="location.href='{% url 'register' %}'" class="registerbtn">
-    Register
-</button>
+            <a href="{% url 'loginpage' %}">
+                <button class="btn btn-design2 mx-1">
+                    <strong>Login</strong>
+                </button>
+            </a>
+            <a href="{% url 'register' %}">
+                <button class="btn btn-design1 mx-1">
+                    <strong>Signup</strong>
+                </button>
+            </a>
+        </div>
+    </div>
 
-
-
+</div>
 {% endblock %}
