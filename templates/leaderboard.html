@@ -1,18 +1,41 @@
-{% extends 'home.html' %} 
+{% extends 'home-lo.html' %} 
+{% load static %}
 {% block content %}
-<br>
-  <button type="button" onclick="location.href='{% url 'logoutpage' %}'" class="registerbtn">
-    Logout
-  </button>
-  <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">LEADERBOARD</p>
 
+<div class="container">
+  <div class="card card-design mx-auto shadow">
+      <div class="card-body text-center">
+          <img src="{% static 'images/leaderboard.jpg' %}" width="300" height="300" class="img-fluid mx-auto d-block">
+          <h2 class="card-title mt-3"><b>Leaderboard</b></h2>
+          <h5 class="card-title ">
+              <table class="table table-striped table-design table-bordered" style="margin: auto;">
+                  <thead>
+                    <tr>
+                      <th scope="col">Rank</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Score</th>
+                    </tr>
+                  </thead>
+                
+                  <tbody>
+                  
+                      {% for ls in levelscore %}
+                      <tr>
+                        <th scope="row"><h6>{{forloop.counter}}</h6></th>
+                        <td><h6>{{ ls.user }}</h6></td>
+                        <td><h6>{{ls.score }}</h6></td>
+                    
+                      </tr>
+                      {% endfor %}
+                
+                   
+                  </tbody>
+                </table>
+              </h5>
 
-{% for ls in levelscore %}
-<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:20px;white-space: pre">{{ ls.user }}&nbsp; {{ls.score }}</p>
- 
-{% endfor %}
-
-
+         
+      </div>
+  </div>
 
 
 {% endblock %}

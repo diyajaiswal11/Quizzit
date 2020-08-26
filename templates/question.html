@@ -1,33 +1,44 @@
-{% extends 'home.html' %} 
+{% extends 'home-lo.html' %}
+{% load static %}
 {% block content %}
-<br>
-<button type="button" onclick="location.href='{% url 'leaderboard' %}'" class="registerbtn" style="width: 130px;">
-  Leaderboard
-</button>
-<button type="button" onclick="location.href='{% url 'logoutpage' %}'" class="registerbtn">
-  Logout
-</button>
-<p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-large">QUESTION</p>
-<p>
-  <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:x-medium">{{ que.question }}</p>
-    
 
-    <form method="POST">
-        {% csrf_token %} 
-        {% for field in form %}
-        {{ field }}
-        {% endfor %}
-        <button type="submit" class="registerbtn">
-          Submit
-      </button>
+<div class="container">
+  <div class="card card-design mx-auto shadow">
+    <div class="card-body text-center">
+      <h2 class="card-title mt-3"><b>Question</b></h2>
+      <h4 class="card-title mb-4 ">
+        {{ que.question }}
+      </h4>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group form-inline justify-content-center">
+          {% for field in form %}
+          {{ field }}
+          {% endfor %}
+          <a href="#">
+            <button class="btn btn-design3 mx-1" type="submit">
+              <strong>Submit</strong>
+            </button>
+          </a>
+        </div>
       </form>
-
       <div class="messages">
         {% for message in messages %}
-            <p id="messages">{{message}}</p>
+        <div class="alert alert-danger" id="messages" style="width: 60%;margin:auto">
+          <strong>{{ message }}</strong>
+        </div>
         {% endfor %}
-</p>
+      </div>
+      <br>
 
 
 
+      <a href="{% url 'leaderboard' %}">
+        <button class="btn btn-design1 mx-1">
+          <strong>Leaderboard</strong>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock %}

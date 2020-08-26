@@ -1,0 +1,21 @@
+{% extends 'home-lo.html' %} 
+{% block content %}
+
+<div class="container">
+    <div class="card card-design mx-auto shadow">
+        <div class="card-body text-center">
+            <h2 class="card-title mt-3"><b>Congratulations! &#127881;</b></h2>
+            <h5 class="card-title ">
+                You have successfully answered all the questions of the quiz! <br>
+                We congratulate you for scoring 100/100 points. &#127775; <br>
+                Find yourself on the leaderboard with highest points. &#128079;
+            </h5>
+            <a href="{% url 'leaderboard' %}">
+                <button class="btn btn-design1 mx-1">
+                    <strong>Leaderboard</strong>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

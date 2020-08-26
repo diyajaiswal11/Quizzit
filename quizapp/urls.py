@@ -10,4 +10,5 @@ urlpatterns = [
     path('logoutpage/',views.logoutpage,name='logoutpage'),
     path('question/<int:pk>/',views.question,name='question'),
     path('leaderboard/',views.leaderboard,name='leaderboard'),
+    path('completed/',views.completed,name='completed'),
 ]

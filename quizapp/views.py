@@ -15,9 +15,11 @@ from django.views.decorators.cache import cache_control
 @login_required(login_url='question')
 @cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def question(request,pk):
+    levelscore=Level.objects.get(user=request.user)
+    if levelscore.level>=16:
+        return render(request,'completed.html')
     que=Question.objects.get(pk=pk)
     ans=str(Answer.objects.get(question=que))
-    levelscore=Level.objects.get(user=request.user)
     if pk<levelscore.level:
         return HttpResponseRedirect(reverse('question', args=(levelscore.level,)))
     if request.method=='POST':
@@ -46,6 +48,9 @@ def leaderboard(request):
     return render(request,'leaderboard.html',{'levelscore':levelscore })
    
 
+@login_required(login_url='completed')
+def completed(request):
+    return render(request,'completed.html')
 
 
 @login_required(login_url='frontpage')
@@ -55,7 +60,11 @@ def frontpage(request):
 
 
 def home(request):
-    return render(request,'base.html')
+    user=request.user
+    if user.is_authenticated:
+        return redirect('frontpage') 
+    else:
+        return render(request,'base.html')
 
 
 
