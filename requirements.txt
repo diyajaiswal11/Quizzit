@@ -5,7 +5,6 @@ pytz==2019.3
 static3==0.7.0
 requests==2.21.0
 bootstrap4==0.1.0
-Django==2.1.1
 env==0.1.0
 Jinja2==2.10.1
 virtualenv==16.7.5
