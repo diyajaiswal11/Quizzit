@@ -1,1 +1,0 @@
-web: gunicorn quizzit.wsgi
