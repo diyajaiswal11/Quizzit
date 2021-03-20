@@ -6,6 +6,6 @@ static3==0.7.0
 requests==2.21.0
 bootstrap4==0.1.0
 env==0.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 virtualenv==16.7.5
 virtualenvwrapper-win==1.2.5
