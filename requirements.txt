@@ -1,6 +1,6 @@
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==2.2.13
+Django==2.2.20
 pytz==2019.3
 static3==0.7.0
 requests==2.21.0
